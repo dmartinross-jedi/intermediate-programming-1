@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Page Not Found — Pip and the Magic Code{% endblock %}
+
+{% block content %}
+<div class="error-page">
+  <div class="error-page__emoji">🤔</div>
+  <h1 class="error-page__title">Oops! Page Not Found</h1>
+  <p class="error-page__message">
+    Pip looked everywhere, but couldn't find that page!<br>
+    Maybe it's hiding in a loop somewhere… 🔄
+  </p>
+  <a href="{{ url_for('cover') }}" class="btn btn--primary">
+    🏠 Go Back to the Cover
+  </a>
+</div>
+{% endblock %}

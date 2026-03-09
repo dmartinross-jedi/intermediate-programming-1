@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Pip and the Magic Code — Cover{% endblock %}
+
+{% block content %}
+<div class="cover-page">
+  <div class="cover-badge">🐍 A Python Adventure</div>
+  <div class="cover-illustration">
+    <span class="cover-emoji">👧</span>
+    <span class="cover-emoji cover-emoji--laptop">💻</span>
+    <span class="cover-emoji cover-emoji--star">⭐</span>
+  </div>
+  <h1 class="cover-title">Pip and the Magic Code</h1>
+  <p class="cover-subtitle">A Children's Book for Young Programmers</p>
+  <p class="cover-description">
+    Join <strong>Pip</strong>, a curious 8-year-old, as she discovers the magical world of
+    <strong>Python programming</strong>! Along the way she learns about variables, loops,
+    functions, and much more — one adventure at a time.
+  </p>
+  <a href="{{ url_for('page', page_number=1) }}" class="btn btn--primary btn--large">
+    📖 Start Reading!
+  </a>
+  <div class="cover-chapters">
+    <h2>Chapters</h2>
+    <ol class="chapter-list">
+      {% for i in range(1, total_pages + 1) %}
+      <li>
+        <a href="{{ url_for('page', page_number=i) }}">Chapter {{ i }}</a>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</div>
+{% endblock %}
