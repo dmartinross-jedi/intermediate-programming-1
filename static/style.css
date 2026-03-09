@@ -1,0 +1,527 @@
+/* ============================================================
+   Pip and the Magic Code — Stylesheet
+   ============================================================ */
+
+/* ---- Reset & Base ---------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 18px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', 'Comic Sans MS', 'Chalkboard SE', cursive, sans-serif;
+  background: linear-gradient(135deg, #e0f7fa 0%, #f3e5f5 50%, #fff9c4 100%);
+  min-height: 100vh;
+  color: #2c2c2c;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ---- Site Header ----------------------------------------- */
+.site-header {
+  background: linear-gradient(90deg, #6a1b9a, #1565c0, #00838f);
+  padding: 0.75rem 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.header-logo {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  display: inline-block;
+}
+
+.header-logo:hover {
+  text-shadow: 0 0 8px rgba(255,255,255,0.7);
+}
+
+/* ---- Site Footer ----------------------------------------- */
+.site-footer {
+  background: #37474f;
+  color: #cfd8dc;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+
+/* ---- Main content ---------------------------------------- */
+main {
+  flex: 1;
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* ---- Buttons --------------------------------------------- */
+.btn {
+  display: inline-block;
+  padding: 0.65rem 1.5rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  border: none;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+}
+
+.btn--primary {
+  background: linear-gradient(135deg, #ab47bc, #7b1fa2);
+  color: #fff;
+}
+
+.btn--secondary {
+  background: #fff;
+  color: #555;
+  border: 2px solid #ccc;
+}
+
+.btn--secondary:hover {
+  border-color: #ab47bc;
+  color: #7b1fa2;
+}
+
+.btn--large {
+  padding: 0.9rem 2.2rem;
+  font-size: 1.15rem;
+}
+
+/* ============================================================
+   COVER PAGE
+   ============================================================ */
+.cover-page {
+  max-width: 680px;
+  width: 100%;
+  background: #fff;
+  border-radius: 24px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+  text-align: center;
+}
+
+.cover-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #43a047, #1b5e20);
+  color: #fff;
+  padding: 0.3rem 1rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin-bottom: 1.2rem;
+}
+
+.cover-illustration {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.cover-emoji {
+  font-size: 4rem;
+  line-height: 1;
+  animation: float 3s ease-in-out infinite;
+}
+
+.cover-emoji--laptop {
+  animation-delay: 0.5s;
+  font-size: 3.5rem;
+}
+
+.cover-emoji--star {
+  animation-delay: 1s;
+  font-size: 2.5rem;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+
+.cover-title {
+  font-size: 2.3rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #6a1b9a, #1565c0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.4rem;
+  line-height: 1.2;
+}
+
+.cover-subtitle {
+  color: #7b1fa2;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+}
+
+.cover-description {
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+.cover-chapters {
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.cover-chapters h2 {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 0.75rem;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 0.4rem;
+}
+
+.chapter-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 0.5rem;
+}
+
+.chapter-list li a {
+  display: block;
+  padding: 0.4rem 0.8rem;
+  background: #f5f5f5;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #444;
+  transition: background 0.15s, color 0.15s;
+}
+
+.chapter-list li a:hover {
+  background: #e1bee7;
+  color: #6a1b9a;
+}
+
+/* ============================================================
+   BOOK PAGE
+   ============================================================ */
+.book-page {
+  max-width: 780px;
+  width: 100%;
+  background: var(--page-bg, #fff);
+  border-radius: 24px;
+  padding: 2rem 2rem 2.5rem;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+  border-top: 8px solid var(--page-color, #6a1b9a);
+}
+
+/* -- Progress bar -- */
+.progress-bar {
+  position: relative;
+  background: #e0e0e0;
+  border-radius: 50px;
+  height: 18px;
+  margin-bottom: 1.8rem;
+  overflow: hidden;
+}
+
+.progress-bar__fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--page-color, #6a1b9a), #1565c0);
+  border-radius: 50px;
+  transition: width 0.4s ease;
+}
+
+.progress-bar__label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  white-space: nowrap;
+}
+
+/* -- Page header -- */
+.page-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.page-emoji {
+  font-size: 3.5rem;
+  line-height: 1;
+  flex-shrink: 0;
+  animation: float 3s ease-in-out infinite;
+}
+
+.chapter-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--page-color, #6a1b9a);
+  text-transform: uppercase;
+}
+
+.page-title {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #2c2c2c;
+  line-height: 1.2;
+}
+
+/* -- Story section -- */
+.story-section {
+  margin-bottom: 1.5rem;
+}
+
+.story-text {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.story-quote {
+  border-left: 5px solid var(--page-color, #6a1b9a);
+  padding: 0.75rem 1rem;
+  background: rgba(255,255,255,0.6);
+  border-radius: 0 12px 12px 0;
+  font-style: italic;
+  color: #444;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* -- Lesson section -- */
+.lesson-section {
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.lesson-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--page-color, #6a1b9a);
+  margin-bottom: 0.6rem;
+}
+
+.lesson-text {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #444;
+  margin-bottom: 1.2rem;
+}
+
+.lesson-text code {
+  background: #ede7f6;
+  color: #6a1b9a;
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.9em;
+}
+
+/* -- Code block -- */
+.code-block {
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+.code-block__header {
+  background: #37474f;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.code-block__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.code-block__dot--red    { background: #ef5350; }
+.code-block__dot--yellow { background: #ffca28; }
+.code-block__dot--green  { background: #66bb6a; }
+
+.code-block__title {
+  color: #90a4ae;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-left: 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+.code-block__body {
+  background: #263238;
+  color: #a5d6a7;
+  padding: 1rem 1.25rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+/* -- Output block -- */
+.output-block {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid var(--page-color, #6a1b9a);
+}
+
+.output-block__header {
+  background: var(--page-color, #6a1b9a);
+  color: #fff;
+  padding: 0.4rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.output-block__body {
+  background: #f9f9f9;
+  color: #333;
+  padding: 0.75rem 1.25rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  white-space: pre;
+  overflow-x: auto;
+}
+
+/* -- Fun fact -- */
+.fun-fact {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  background: linear-gradient(135deg, #fff9c4, #fff3e0);
+  border: 2px dashed #ffa726;
+  border-radius: 14px;
+  padding: 0.9rem 1.2rem;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+.fun-fact__icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+/* -- Navigation -- */
+.page-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.page-nav__dots {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ccc;
+  display: inline-block;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.dot:hover {
+  background: var(--page-color, #ab47bc);
+  transform: scale(1.3);
+}
+
+.dot--active {
+  background: var(--page-color, #6a1b9a);
+  transform: scale(1.4);
+}
+
+/* ============================================================
+   404 PAGE
+   ============================================================ */
+.error-page {
+  max-width: 500px;
+  width: 100%;
+  background: #fff;
+  border-radius: 24px;
+  padding: 3rem 2rem;
+  text-align: center;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+}
+
+.error-page__emoji {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.error-page__title {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #7b1fa2;
+  margin-bottom: 1rem;
+}
+
+.error-page__message {
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 600px) {
+  html { font-size: 16px; }
+
+  .cover-title { font-size: 1.8rem; }
+  .page-title  { font-size: 1.4rem; }
+
+  .page-header { flex-direction: column; text-align: center; }
+
+  .page-nav { flex-direction: column; align-items: stretch; text-align: center; }
+  .page-nav .btn { text-align: center; }
+
+  .cover-page,
+  .book-page  { padding: 1.5rem 1rem; }
+
+  .chapter-list { grid-template-columns: 1fr 1fr; }
+}
